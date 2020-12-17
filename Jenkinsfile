@@ -12,10 +12,12 @@ pipeline {
                 sh 'hadolint Dockerfile'
             }
         }
-        stage('Build & Push') {
+        stage('Build') {
             script { 
                 dockerImage = docker.build registry + ":$BUILD_NUMBER" 
             }
+        }
+        stage('Push') {
             script { 
                 docker.withRegistry( '', registryCredential ) { 
                     dockerImage.push() 
