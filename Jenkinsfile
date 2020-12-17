@@ -8,6 +8,7 @@ pipeline {
             }
         }
         stage('Build image') {
+            checkout scm
             def dockerImage = docker.build("nawfaltachfine/ml-microservice:v2.0")
         }
         stage('Push image') {
