@@ -4,17 +4,18 @@ pipeline {
     stages {
         stage('Lint') {
             steps {
-                hadolint Dockerfile
+                sh hadolint Dockerfile
             }
         }
-        stage('Build') {
+        stage('Build & Push') {
             steps {
-                docker build -t nawfaltachfine/ml-microservice .
+                sh docker build -t nawfaltachfine/ml-microservice .
+                sh docker push nawfaltachfine/ml-microservice
             }
         }
-        stage('Push') {
+        stage('Deploy') {
             steps {
-                docker push nawfaltachfine/ml-microservice
+                echo 'wesh'
             }
         }
     }
