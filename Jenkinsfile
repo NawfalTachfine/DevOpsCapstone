@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('Lint') {
             steps {
-                sh 'hadolint Dockerfile'
+                sh 'hadolint Dockerfile '
             }
         }
         stage('Build & Push') {
