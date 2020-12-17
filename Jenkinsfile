@@ -7,12 +7,12 @@ pipeline {
                 sh 'hadolint Dockerfile'
             }
         }
-        stage('Build & Push') {
-            steps {
-                sh 'docker build -t nawfaltachfine/ml-microservice .'
-                sh 'docker push nawfaltachfine/ml-microservice'
-            }
+        stage('Build image') {
+            dockerImage = docker.build("nawfaltachfine/ml-microservice:v2.0")
         }
+        stage('Push image') {
+            dockerImage.push()
+        }  
         stage('Deploy') {
             steps {
                 echo 'wesh'
