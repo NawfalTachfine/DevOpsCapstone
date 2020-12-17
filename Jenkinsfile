@@ -2,19 +2,19 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
-            steps {
-                echo 'Building..'
-            }
-        }
         stage('Lint') {
             steps {
-                echo 'Linting..'
+                hadolint Dockerfile
             }
         }
-        stage('Deploy') {
+        stage('Build') {
             steps {
-                echo 'Deploying....'
+                docker build -t nawfaltachfine/ml-microservice .
+            }
+        }
+        stage('Push') {
+            steps {
+                docker push nawfaltachfine/ml-microservice
             }
         }
     }
