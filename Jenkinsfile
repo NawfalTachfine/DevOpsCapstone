@@ -1,6 +1,6 @@
 pipeline {
     environment {
-        //DOCKERHUB_PWD = credentials('dockerhub:password')
+        DOCKERHUB_PWD = 'wesh'//credentials('dockerhub:password')
     }
     agent any
 
