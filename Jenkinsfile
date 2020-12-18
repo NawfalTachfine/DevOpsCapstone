@@ -1,6 +1,6 @@
 pipeline {
     environment {
-        DOCKERHUB_PWD = credentials('dockerhub.Password')
+        DOCKERHUB_PWD = credentials('dockerhub')
     }
     agent any
 
