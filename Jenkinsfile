@@ -15,7 +15,7 @@ pipeline {
         stage('Build & Push') {
             steps {
                 sh 'docker build -t nawfaltachfine/ml-microservice:2.0 .'
-                sh 'docker push nawfaltachfine/ml-microservice:2.0'
+                sh 'docker login && docker push nawfaltachfine/ml-microservice:2.0'
             }
         }
         stage('Deploy') {
