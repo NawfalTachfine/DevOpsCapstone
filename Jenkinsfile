@@ -1,8 +1,6 @@
 pipeline {
-    environment { 
-        registry = "nawfaltachfine/ml-microservice" 
-        registryCredential = 'nawfaltachfine' 
-        dockerImage = '' 
+    environment {
+        DOCKERHUB_PWD = credentials('dockerhub')
     }
     agent any
 
