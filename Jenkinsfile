@@ -9,9 +9,9 @@ pipeline {
         }
         stage('Build & Push') {
             steps {
-                sh "docker build -t nawfaltachfine/ml-microservice:${env.BUILD_TAG} ."
+                sh "docker build -t nawfaltachfine/ml-microservice:${env.BUILD_NUMBER} ."
                 withDockerRegistry([url: "", credentialsId: "dockerhub"]) {
-                    sh "docker push nawfaltachfine/ml-microservice:${env.BUILD_TAG}"
+                    sh "docker push nawfaltachfine/ml-microservice:${env.BUILD_NUMBER}"
                 }
             }
         }
