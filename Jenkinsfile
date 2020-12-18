@@ -12,7 +12,7 @@ pipeline {
         }
         stage('Build & Push') {
             //steps {
-                image = docker.build('nawfaltachfine/ml-microservice:2.0')
+                def image = docker.build('nawfaltachfine/ml-microservice:2.0')
                 image.push()
                 //sh 'docker build -t nawfaltachfine/ml-microservice:2.0 .'
                 //sh 'echo $DOCKERHUB_PWD'
